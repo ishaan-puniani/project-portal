@@ -74,9 +74,11 @@ function ProjectItemStore() {
     }
 
     function donate(item) {
-        item.donors++;
-        item.donated += item.amtToDonate;
-        triggerListeners();
+        if (item.amtToDonate > 0) {
+            item.donors++;
+            item.donated += item.amtToDonate;
+            triggerListeners();
+        }
     }
 
     function onChange(listener) {

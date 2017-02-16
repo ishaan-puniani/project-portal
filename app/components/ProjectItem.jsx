@@ -47,31 +47,35 @@ module.exports = React.createClass({
         </div>);
 
         return (
-            <div className="project-item row">
-                <div className="col-md-12">
-                    <img src={this.props.item.image}></img>
-                    <h1>{this.props.item.name}</h1>
-                    {progressBarContainer}
-                    <div><span>Only {this.props.item.daysLeft} days left</span> to fund this project.</div>
-                    <div>Join the <span>{this.props.item.donors}</span> other who have donated
-                        <span>{this.props.item.donated}</span>.
+            <div className="project-item">
+                <div className="col-md-6">
+                    <div className="text-center">
+                        <img src={this.props.item.image}></img>
+                        <h1>{this.props.item.name}</h1>
                     </div>
+                    <div className="panel panel-default">
+                        {progressBarContainer}
+                        <div className="pnlBody">
+                            <div><span className="daysLeft">Only {this.props.item.daysLeft} days left</span> to fund
+                                this project.
+                            </div>
+                            <div>Join the <span className="donorsCount">{this.props.item.donors}</span> other who have
+                                donated
+                                <span className="amtDonated"> ${this.props.item.donated}</span>.
+                            </div>
+                            <form onSubmit={this.donate} className="form-inline">
 
-                    <div className="six columns">
+                                <div className="donateForm">
+                                    <input type="text" className="form-control" onChange={this.handleChange}
+                                           placeholder="Amount"/>
+                                    <Button type="submit"
+                                            bsStyle={this.props.item.invalid ? "default" : "success"}>Donate</Button>
 
-                        <h4 className={this.props.item.purchased ? "strikethrough" : "" }>
-                            {this.props.item.name}
-                        </h4>
-                    </div>
-                    <form onSubmit={this.donate} className="three columns">
-                        <div>
-                            <input type="text" onChange={this.handleChange} value={this.props.item.amt}/>
-                            <Button type="submit" bsStyle={this.props.item.invalid ? "default" : "success"}>Donate</Button>
+                                </div>
+
+                            </form>
                         </div>
-                    </form>
-                    <form className="three columns" onSubmit={this.delete}>
-                        <button>&times;</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         )
