@@ -20,7 +20,6 @@
     "react": "*",
     "react-bootstrap": "*",
     "react-dom": "*",
-    "react-tools": "*",
     "reactify": "*",
     "vinyl-source-stream": "*"
   },
