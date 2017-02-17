@@ -23,9 +23,13 @@
     "reactify": "*",
     "vinyl-source-stream": "*"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp serve",
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
